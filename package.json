@@ -1,0 +1,32 @@
+{
+  "name": "felicitare-osut",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@emotion/react": "^11.10.5",
+    "@emotion/styled": "^11.10.5",
+    "@mui/material": "^5.10.16",
+    "axios": "^1.2.0",
+    "flowbite": "^1.5.4",
+    "flowbite-react": "^0.3.5",
+    "pdf-lib": "^1.17.1",
+    "postcss": "^8.4.19",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.0.24",
+    "@types/react-dom": "^18.0.8",
+    "@vitejs/plugin-react": "^2.2.0",
+    "autoprefixer": "^9.8.6",
+    "postcss-cli": "^10.0.0",
+    "tailwindcss": "^3.2.4",
+    "vite": "^3.2.3"
+  }
+}
