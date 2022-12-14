@@ -1,13 +1,11 @@
-import { useState } from "react";
-import osut from "../../assets/OSUT.svg";
-import useWindowDimensions from "../../hooks/useWindowDimensions";
+import { useContext, useState } from 'react';
+import { Link, Route, useLocation, useRoutes } from 'react-router-dom';
+import osut from '../../assets/OSUT.svg';
+import useWindowDimensions from '../../hooks/useWindowDimensions';
 export default function Navbar() {
-  const { height, width } =
-    useWindowDimensions();
-  const [isPhone, setIsPhone] =
-    useState("false");
-  const [isShown, setIsShown] =
-    useState(false);
+  const { height, width } = useWindowDimensions();
+  const [isPhone, setIsPhone] = useState('false');
+  const [isShown, setIsShown] = useState(false);
 
   const handleClick = (event) => {
     setIsShown((current) => !current);
@@ -18,64 +16,39 @@ export default function Navbar() {
       setIsPhone(true);
     }
   };
-
+  var currentRoutes = useLocation().pathname;
   return (
-    <nav className="flex items-center justify-between flex-wrap lg:bg-transparent p-6 matahari transition-all bg-black">
-      <div class="flex items-center flex-shrink-0 text-white mr-6 ">
-        <img
-          src={osut}
-          alt="logo"
-          className="w-24 ml-14"
-        />
+    <nav className="flex items-center justify-between  bg-transparent p-6 matahari  ">
+      <div class="flex items-center  text-white mr-6 ">
+        <Link to="/">
+          <img src={osut} alt="logo" className="w-24 ml-24" />
+        </Link>
       </div>
-      <div class="block lg:hidden">
-        <button
-          onClick={handleClick}
-          class="flex transition-all items-center px-3 py-2  rounded text-white  hover:text-white"
-        >
+      {currentRoutes === '/ourreason' ? (
+        <button className="bg-transparent  font-semibold r-0  text-black py-1 px-3 border matahari   border-black rounded-md flex align-items-center ">
+          <a
+            href="https://example.zendesk.com/hc/en-us/articles/123456789-Privacy-Policies"
+            target={'_blank'}
+          >
+            Donează &nbsp;
+          </a>
+
           <svg
-            class="fill-current h-3 w-3"
-            viewBox="0 0 20 20"
+            class="w-6 h-6 -mt-0.5"
+            fill="none"
+            stroke="black"
+            viewBox="0 0 24 24"
             xmlns="http://www.w3.org/2000/svg"
           >
-            <title>Menu</title>
-            <path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z" />
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7"
+            ></path>
           </svg>
         </button>
-      </div>
-
-      {isShown && isPhone ? (
-        <div class="transition-all w-full ml-14 block lg:flex lg:items-center lg:w-auto lg:right-0 ">
-          <div class="text-sm lg:flex-grow">
-            <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
-              Creaza felicitare
-            </a>
-            <a
-              href="#responsive-header"
-              class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4"
-            >
-              De ce facem asta?
-            </a>
-            <a class="block mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
-              Doneaza
-            </a>
-          </div>
-        </div>
-      ) : (
-        <div class="w-full cursor-pointer block lg:flex lg:items-center lg:w-auto lg:pr-14">
-          <div class="text-sm ">
-            <a class="hidden mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4 ">
-              Creaza felicitare
-            </a>
-            <a class="hidden mt-4 lg:inline-block lg:mt-0 text-white hover:text-white mr-4">
-              De ce facem asta?
-            </a>
-            <a class="hidden mt-4 lg:inline-block lg:mt-0 text-white hover:text-white">
-              Doneaza
-            </a>
-          </div>
-        </div>
-      )}
+      ) : null}
     </nav>
   );
 }

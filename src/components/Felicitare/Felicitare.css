@@ -1,0 +1,13 @@
+@font-face {
+  font-family: 'Glance Sans';
+  src: local('FSP DEMO - Glance Sans'), url('./assets/fonts/glancesans.ttf'),
+    format('opentype');
+}
+
+.glance {
+  font-family: 'Glance Sans' !important;
+}
+
+.rubik-font {
+  font-family: 'Rubik', sans-serif;
+}

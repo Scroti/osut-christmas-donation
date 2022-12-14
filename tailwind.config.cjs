@@ -6,6 +6,9 @@ module.exports = {
   theme: {
     fontFamily: {
       matahari: "Matahari,serif",
+      nunito: "Nunito",
+      glance: "Glance",
+      poppins: 'Poppins'
     },
     extend: {},
   },
